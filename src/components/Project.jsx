@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProjectDetails from "./ProjectDetails";
 
 const Project = ({
@@ -16,6 +16,21 @@ const Project = ({
     setIsHidden(modalState)
     setPreview(null)
   }
+  useEffect(() => {
+     if (isHidden) {
+      // Disable scroll
+      document.body.style.overflow = "hidden";
+    } else {
+      // Enable scroll
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    // return () => {
+    //   document.body.style.overflow = "";
+    // };
+  }, [isHidden])
+  
   return (
     <>
       <div
@@ -50,7 +65,7 @@ const Project = ({
           tags={tags}
           href={href}
           closeModal={() => toggleModal(false)}
-          isHidden={isHidden}
+         
         />
       )}
     </>

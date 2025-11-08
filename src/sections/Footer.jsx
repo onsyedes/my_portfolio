@@ -1,5 +1,6 @@
 import { mySocials } from "../constants";
 const Footer = () => {
+  const year = new Date().getFullYear();
   return (
     <section className="flex flex-wrap items-center justify-between gap-5 pb-3 text-sm text-neutral-400 c-space">
       <div className="mb-4 bg-gradient-to-r from-transparent via-neutral-700 to-transparent h-[1px] w-full" />
@@ -15,7 +16,7 @@ const Footer = () => {
           </a>
         ))}
       </div>
-      <p>© 2025 Ons Yedes. All rights reserved.</p>
+      <p>© {year} Ons Yedes. All rights reserved.</p>
     </section>
   );
 };

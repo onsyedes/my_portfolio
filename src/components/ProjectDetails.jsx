@@ -10,8 +10,7 @@ const ProjectDetails = ({
   image,
   tags,
   href,
-  closeModal,
-  isHidden,
+  closeModal
 }) => {
   
   return (
@@ -38,27 +37,23 @@ const ProjectDetails = ({
           <div className="flex items-center justify-between mt-4">
             <div className="flex gap-3">
               {tags.map((tag) => (
-                
-    <img
-      data-tooltip-id="tool-name" 
-      data-tooltip-content={tag.name}
-      data-tooltip-place="top"
-      src={tag.path}
-      alt={tag.name}
-      className={`rounded-lg cursor-pointer  ${tag?.style ? tag.style : 'size-10'} hover-animation`}
-    />
-    
-
-               
-              ))}
+              <img
+                data-tooltip-id="tool-name" 
+                data-tooltip-content={tag.name}
+                data-tooltip-place="top"
+                src={tag.path}
+                alt={tag.name}
+                className={`rounded-lg cursor-pointer  ${tag?.style ? tag.style : 'size-10'} hover-animation`}
+              />))}
             </div>
-            <a  
+            
+          </div>
+          <a  
              
-            className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation" href={href} target="_blank" rel="noopener noreferrer">
+            className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation float-end p-3" href={href} target="_blank" rel="noopener noreferrer">
               View Project{" "}  
               <img src="assets/arrow-up.svg" className="size-4"  />
             </a>
-          </div>
         </div>
       </motion.div>
     </div>

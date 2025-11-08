@@ -188,7 +188,7 @@ export const myProjects = [
         path: "/assets/logos/puppeteer.png",
       },
       {
-        id: 7,
+        id: 8,
         name: "RabbitMQ",
         path: "/assets/logos/rabbitmq.png",
       },

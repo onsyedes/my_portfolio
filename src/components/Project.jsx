@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ProjectDetails from "./ProjectDetails";
 
 const Project = ({
+  id,
   title,
   description,
   subDescription,
@@ -11,6 +12,10 @@ const Project = ({
   setPreview,
 }) => {
   const [isHidden, setIsHidden] = useState(false);
+  const toggleModal = (modalState) => {
+    setIsHidden(modalState)
+    setPreview(null)
+  }
   return (
     <>
       <div
@@ -27,7 +32,7 @@ const Project = ({
           </div>
         </div>
         <button
-          onClick={() => setIsHidden(true)}
+          onClick={()=>toggleModal(true)}
           className="flex items-center gap-1 cursor-pointer hover-animation"
         >
           Read More
@@ -37,13 +42,15 @@ const Project = ({
       <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent h-[1px] w-full" />
       {isHidden && (
         <ProjectDetails
+          projectId={id}
           title={title}
           description={description}
           subDescription={subDescription}
           image={image}
           tags={tags}
           href={href}
-          closeModal={() => setIsHidden(false)}
+          closeModal={() => toggleModal(false)}
+          isHidden={isHidden}
         />
       )}
     </>
